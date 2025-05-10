@@ -1,4 +1,10 @@
 steps:
+  - name: 'python:3.9'
+    entrypoint: 'bash'
+    args:
+    - '-c'
+    - |
+      pip install --upgrade pip setuptools wheel
   - name: python
     entrypoint: python
     args: ["-m", "pip", "install", "--upgrade", "pip"]
