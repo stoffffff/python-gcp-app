@@ -9,11 +9,11 @@ steps:
     entrypoint: python
     args: ["-m", "pip", "install", "--upgrade", "pip"]
   - name: python
-    entrypoint: python
-    args: ["-m", "pip", "install", "build", "pytest", "Flask", "--user"]
+    id: install-dependencies
+    args: ["-m", "pip", "install", "build", "pytest", "Flask", "-r", "requirements.txt"]
   - name: python
-    entrypoint: python
-    args: ["-m", "build"]
+    id: build-wheel
+    args: ["-m", "build", "--wheel"]
 
 artifacts:
   pythonPackages:
