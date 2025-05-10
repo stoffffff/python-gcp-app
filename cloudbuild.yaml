@@ -1,0 +1,23 @@
+steps:
+  - name: python
+    entrypoint: python
+    args: ["-m", "pip", "install", "--upgrade", "pip"]
+  - name: python
+    entrypoint: python
+    args: ["-m", "pip", "install", "build", "pytest", "Flask", "--user"]
+  - name: python
+    entrypoint: python
+    args: ["-m", "build"]
+    dir: python-example-noncontainer-artifacts/
+  - name: python
+    entrypoint: python
+    args: ["-m", "pytest", "--junitxml=${SHORT_SHA}_test_log.xml"] 
+    dir: python-example-noncontainer-artifacts/
+
+artifacts:
+  pythonPackages:
+    - repository: 'https://europe-west1-python.pkg.dev/exam-prep-459213/python-repo'
+      paths: ['dist/*']
+options:
+  requestedVerifyOption: VERIFIED
+  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
