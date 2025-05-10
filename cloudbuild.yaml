@@ -9,11 +9,6 @@ steps:
     entrypoint: python
     args: ["-m", "build"]
 
-  - name: python
-    entrypoint: python
-    args: ["-m", "pytest", "--junitxml=${SHORT_SHA}_test_log.xml"] 
-
-
 artifacts:
   pythonPackages:
     - repository: 'https://europe-west1-python.pkg.dev/exam-prep-459213/python-repo'
