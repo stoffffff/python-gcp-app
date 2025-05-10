@@ -8,11 +8,11 @@ steps:
   - name: python
     entrypoint: python
     args: ["-m", "build"]
-    dir: python-example-noncontainer-artifacts/
+
   - name: python
     entrypoint: python
     args: ["-m", "pytest", "--junitxml=${SHORT_SHA}_test_log.xml"] 
-    dir: python-example-noncontainer-artifacts/
+
 
 artifacts:
   pythonPackages:
